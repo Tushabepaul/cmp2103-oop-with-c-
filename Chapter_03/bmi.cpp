@@ -1,15 +1,32 @@
-// Write a program that prompts the user to enter a weight in pounds and height in inches and
-// then displays the BMI. Note that one pound is 0.45359237 kilograms and one inch is
-// 0.0254 meters. Listing 4.6 gives the program.
+#include <iostream>
+using namespace std;
 
-// Conditions
-// Below 18.5 Underweight
-// 18.5–24.9 Normal
-// 25.0–29.9 Overweight
-// Above 30.0 Obese
-
-// Enter weight in pounds:
-// Enter Weight in pounds: 146
-// Enter height in inches: 70
-// BMI is 20.95
-// Normal
+int main() {
+    // contants for conversions
+    const double KILOGRAMS_PER_POUND = 0.45359237;
+    const double METERS_PER_INCH = 0.0254;
+    //variables for weight and height
+    double weightInPounds = 0.0;
+    double heightInInches = 0.0;
+    //prompt user for weight and height
+    cout<< "Enter weight in pounds: ";
+    cin >> weightInPounds;
+    cout<< "Enter height in inches: ";
+    cin >> heightInInches;
+    //calculate BMI
+    double bmi = weightInPounds * KILOGRAMS_PER_POUND / ((heightInInches * METERS_PER_INCH) * (heightInInches * METERS_PER_INCH));
+    //display bmi
+    cout << "BMI: " << bmi << endl;
+    //determineand display BMI category
+    if (bmi < 18.5) {
+        cout << "Underweight" << endl;
+    } else if (bmi < 25) {
+        cout << "Normal" << endl;
+    } else if (bmi < 30) {
+        cout << "Overweight" << endl;
+    } else {
+        cout << "Obese" << endl;
+    }
+    
+    return 0;
+}
